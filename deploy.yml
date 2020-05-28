@@ -3,4 +3,4 @@
   become: yes
   tasks:
     - name: deploy app
-      command: sudo docker run -itd -p 85:80 akash1234karma/test:$BUILD_NUMBER
+      command: docker run -itd -p 85:80 akash1234karma/test:$BUILD_NUMBER
