@@ -2,7 +2,24 @@
 <html>
 
         <title>DEVOPS</title>
-        <body>DevOps process</body>
+        <body>DevOps processJenkins ( home page ) ==> New Item ==> job5-deploy.qa ==> Freestyle project ==> ok
+insdie job parameters as below 
+
+	General --> select "This project is parameterized" --> click on dropdown "Add Parameter" --> select "String parameter"
+		Name: Package_Build_Number
+		
+	Source Code Management --> Git --> Repository URL (https://github.com/lerndevops/samplejavaapp)
+		
+	Build --> (click on dropdown) Execute Shell --> command (enter below in box)
+		cd $WORKSPACE/deploy
+		sudo su ansible -c "ansible-playbook -i /tmp/inv deploy.yml -e 'env=qa build=$Package_Build_Number'"
+
+	Post-build Actions --> (click on dropdown) trigger parameterized build on other projects
+		Projects to build: job6-Selenium-test
+		click on dropdown Add Parameters --> Predefined parameters --> prameters box enter "pbn=$Package_Build_Number"
+	Apply & Save
+
+</body>
        
 t
 </html>
