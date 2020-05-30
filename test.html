@@ -1,88 +1,14 @@
-
+<!DOCTYPE html>
 <html>
-
 <body>
 
-<html>
+<h2>Background Image</h2>
 
-        <title> testing the site</title>
-        <body>this website is for tesing </body>
+<div style="background-image: url('C:\Users\NOOPUR\Desktop\Desktop-data\shadi pic\1\DSC_9942.jpg');">
+	
+	
 
+</div>
 
-</html>
-
-
-FROM ubuntu
-RUN apt-get update
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -y apache2
-ADD . /var/www/html
-EXPOSE 80
-CMD ["apachectl", "-D", "FOREGROUND"]
-
-docker build -f Dockerfile -t lerndevops/samplejavaapp:$BUILD_NUMBER .  ## use your docker hub repo
-		docker login -u lerndevops -p $DOCKER_HUB_PWD  ## replace lerndevops with your docker hub username
-		docker push lerndevops/samplejavaapp:$BUILD_NUMBER
-
-
-
-docker run -itd -P akash1234karma/test:$BUILD_NUMBER
-
-
-- hosts: "{{ env }}"
-  become: yes
-  tasks: 
-    - name: deploy app
-      command: sudo docker run -itd -p 85:80 akash1234karma/test:$BUILD_NUMBER
-
-ansible all -a "docker run -itd -p 85:80 akash1234karma/test:$BUILD_NUMBER"
-cd /akash/test
-sudo ansible-playbook deploy.yml build=$Package_Build_Number
-
-5134baa55d70419680969c3ab8a6d5a9
-
-
-Ticket count 
-Sixsigma monthly and Quarterly bonus
-Workday Absense request approval
-
-
-
-pipeline {
-    agent any
-     
-    stages {
-        stage('Ok') {
-            steps {
-                echo "Ok"
-            }
-        }
-    }
-    post {
-    failure {
-        mail bcc: '', body: '''Hi, 
-
-        The pipeline at Jenkins has failed. Pleas go over to the Jenkins and 
-         check it out.
-
-         Thanks!''', cc: '', from: '', replyTo: '', subject: 'The pipeline has failed!', to: 'abc@gmail.com'
-        }
-    }
-}
-
-
-mail -s “Enter the subject” akash.karma24@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-  
 </body>
 </html>
